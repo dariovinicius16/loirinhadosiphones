@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Jhon dos iPhones</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #000000; }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen flex flex-col justify-center items-center px-4">
+
+    <div class="max-w-md w-full bg-gray-950 border border-gray-900 rounded-2xl p-8 shadow-2xl">
+        <div class="text-center mb-8">
+            <h1 class="text-xl font-black tracking-wider text-white">
+                JHON DOS <span class="text-amber-500">iPHONES</span>
+            </h1>
+            <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest font-semibold">Painel de Controle</p>
+        </div>
+
+        <form id="form-login" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Senha de Administrador</label>
+                <div class="relative flex items-center">
+                    <i class="fa-solid fa-lock absolute left-4 text-gray-600 text-sm"></i>
+                    <input type="password" id="senha-admin" placeholder="••••••••" required
+                        class="w-full bg-black border border-gray-800 rounded-xl pl-11 pr-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500 transition">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 px-4 rounded-xl transition text-sm shadow-lg cursor-pointer flex items-center justify-center gap-2">
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar no Painel
+            </button>
+            
+            <a href="index.html" class="block text-center text-xs text-gray-500 hover:text-gray-400 mt-4 transition">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para a Vitrine
+            </a>
+        </form>
+    </div>
+
+    <script>
+        const formLogin = document.getElementById("form-login");
+
+        formLogin.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const senhaDigitada = document.getElementById("senha-admin").value;
+
+            // DEFINA A SENHA DO JHON AQUI:
+            const SENHA_CORRETA = "Jhon@2026"; 
+
+            if (senhaDigitada === SENHA_CORRETA) {
+                // Guarda uma marcação de que ele está logado por tempo indeterminado
+                localStorage.setItem("jhon_autenticado", "true");
+                // Redireciona para o painel administrativo
+                window.location.href = "painel_adm.html"; 
+            } else {
+                alert("Senha incorreta! Acesso negado.");
+                document.getElementById("senha-admin").value = "";
+            }
+        });
+    </script>
+</body>
+</html>
