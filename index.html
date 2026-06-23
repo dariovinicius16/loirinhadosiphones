@@ -79,7 +79,7 @@
                 const statusTag = prod.status === "Esgotado" 
                     ? `<span class="absolute top-3 right-3 bg-red-600/90 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">Esgotado</span>` : "";
 
-                const linkWhats = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá Jhon! Tenho interesse no ${prod.nome} (${prod.capacidade} - ${prod.cor})`)}`;
+                const linkWhats = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá! Tenho interesse no ${prod.nome} (${prod.capacidade} - ${prod.cor})`)}`;
 
                 const templateImagem = prod.imagem_url 
                     ? `<img src="${prod.imagem_url}" class="w-full h-full object-contain p-6 group-hover:scale-105 transition duration-500" alt="${prod.nome}">`
